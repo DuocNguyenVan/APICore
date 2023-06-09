@@ -12,9 +12,9 @@ using System.Threading.Tasks;
 
 namespace SecurityAPI.Controllers
 {
-    //[Route("api/[controller]")]
-    //[ApiController]
-    [Route("[controller]/[action]")]
+    [Route("api/[controller]")]
+    [ApiController]
+    // [Route("[controller]/[action]")]
     public class AuthenticationController : ControllerBase
     {
         private readonly IConfiguration _configuration;
@@ -27,6 +27,10 @@ namespace SecurityAPI.Controllers
         [HttpPost]
         public async Task<IActionResult> Login(UserLogin userLogin)
         {
+            if (userLogin == null ||(string.IsNullOrEmpty(userLogin.UserName)&& string.IsNullOrEmpty(userLogin.Password)))
+            {
+                return BadRequest();
+            }
             var user = await _userManager.FindByNameAsync(userLogin.UserName);
 
             if (user == null) return new BadRequestObjectResult("Username or Password incorrect");

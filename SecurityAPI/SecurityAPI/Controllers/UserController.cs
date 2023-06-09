@@ -12,9 +12,9 @@ using System.Threading.Tasks;
 
 namespace SecurityAPI.Controllers
 {
-    // [Route("api/[controller]")]
-    //[ApiController]
-    [Route("[controller]/[action]")]
+    [Route("api/[controller]")]
+    [ApiController]
+    //[Route("[controller]/[action]")]
     public class UserController : ControllerBase
     {
         private readonly RoleManager<ApplicationRole> _roleManager;

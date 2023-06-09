@@ -59,3 +59,4 @@ D:\Source\Github\APICore\SecurityAPI\SecurityAPI\obj\Debug\net5.0\SecurityAPI.cs
 D:\Source\Github\APICore\SecurityAPI\SecurityAPI\bin\Debug\net5.0\ref\SecurityAPI.dll
 D:\Source\Github\APICore\SecurityAPI\SecurityAPI\obj\Debug\net5.0\staticwebassets\SecurityAPI.StaticWebAssets.xml
 D:\Source\Github\APICore\SecurityAPI\SecurityAPI\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\Source\Github\APICore\SecurityAPI\SecurityAPI\bin\Debug\net5.0\Newtonsoft.Json.dll

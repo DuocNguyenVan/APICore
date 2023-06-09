@@ -8,26 +8,27 @@ using System.Threading.Tasks;
 
 namespace SecurityAPI.Controllers
 {
-    //[Route("api/[controller]")]
-    [Route("[controller]/[action]")]
+    [Route("api/[controller]")]
+    [ApiController]
+    //[Route("[controller]/[action]")]
     public class PermissionController : Controller
     {
         [Authorize(Roles = SecurityRoles.Admin)]
-        [HttpGet]
+        [HttpGet("AdminRole")]
         public IActionResult AdminRole()
         {
             return Ok("Hello Admin");
         }
 
         [Authorize(Roles = SecurityRoles.Manager)]
-        [HttpGet]
+        [HttpGet("ManagerRole")]
         public IActionResult ManagerRole()
         {
             return Ok("Hello Manager");
         }
 
-       // [Authorize(Roles = SecurityRoles.User)]
-        [HttpGet]
+       [Authorize(Roles = SecurityRoles.User)]
+        [HttpGet("UserRole")]
         public IActionResult UserRole()
         {
             return Ok("Hello User");

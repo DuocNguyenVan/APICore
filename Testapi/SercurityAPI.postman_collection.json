@@ -1,0 +1,222 @@
+{
+	"info": {
+		"_postman_id": "ff5202c8-10c7-4d9a-b481-acc488a6ca5c",
+		"name": "SercurityAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "6528953"
+	},
+	"item": [
+		{
+			"name": "Kiểm tra phân quyền",
+			"item": [
+				{
+					"name": "Quyền UserRole",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/Permission/UserRole",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"Permission",
+								"UserRole"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AdminRole",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/Permission/AdminRole",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"Permission",
+								"AdminRole"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ManagerRole",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Tạo Roles",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{HOST}}/User/InitRole",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"User",
+						"InitRole"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Tạo tài khoản",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"UserName\":\"\",\r\n  \"Email\":\"Email\",\r\n  \"Password\":\"Password\",\r\n  \"FullName\":\"FullName\",\r\n  \"IsAdmin\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{HOST}}/User/Register",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"User",
+						"Register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Đăng nhập",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);\r",
+							"pm.environment.set(\"TOKEN\", jsonData.token);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"UserName\":\"duocnv\",\r\n    \"PassWord\":\"CodeMega2023@\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{HOST}}/Authentication/Login",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"Authentication",
+						"Login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Đăng nhập Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);\r",
+							"pm.environment.set(\"TOKEN\", jsonData.token);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"UserName\":\"duocnv\",\r\n    \"PassWord\":\"CodeMega2023@\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{HOST}}/Authentication/Login",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"Authentication",
+						"Login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "test login c#",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:63832/ClientController/IndexAsync",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "63832",
+					"path": [
+						"ClientController",
+						"IndexAsync"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
